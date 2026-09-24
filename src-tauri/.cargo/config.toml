@@ -1,0 +1,10 @@
+[build]
+# Limit parallel compile jobs to reduce peak memory usage.
+# The Rust LLVM linker needs ~300-500 MB per parallel job.
+# On systems with limited free RAM, set this to 1 or 2.
+jobs = 1
+
+[profile.dev]
+# Reduce codegen units to lower memory usage during dev builds.
+# Default is 256; lowering this reduces parallelism inside each crate.
+codegen-units = 1

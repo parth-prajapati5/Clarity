@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+   Design tokens — RGB triplets consumed by tailwind.config.js.
+   The whole palette lives in CSS custom properties so Theme and
+   Accent colour can switch at runtime. `:root` (dark) values match
+   the original hardcoded palette exactly — no visual change by default.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  color-scheme: dark;
+  --background: 19 19 27;
+  --on-background: 228 225 237;
+  --surface: 19 19 27;
+  --on-surface: 228 225 237;
+  --surface-dim: 19 19 27;
+  --surface-bright: 57 56 65;
+  --surface-container-lowest: 13 13 21;
+  --surface-container-low: 27 27 35;
+  --surface-container: 31 31 39;
+  --surface-container-high: 41 41 50;
+  --surface-container-highest: 52 52 61;
+  --surface-variant: 52 52 61;
+  --on-surface-variant: 199 196 215;
+  --outline: 144 143 160;
+  --outline-variant: 70 69 84;
+  --primary: 192 193 255;
+  --on-primary: 16 0 169;
+  --primary-container: 128 131 255;
+  --on-primary-container: 13 0 150;
+  --primary-fixed: 225 224 255;
+  --primary-fixed-dim: 192 193 255;
+  --on-primary-fixed: 7 0 108;
+  --on-primary-fixed-variant: 47 46 190;
+  --inverse-primary: 73 75 214;
+  --surface-tint: 192 193 255;
+  --secondary: 137 206 255;
+  --on-secondary: 0 52 77;
+  --secondary-container: 0 162 230;
+  --on-secondary-container: 0 52 78;
+  --secondary-fixed: 201 230 255;
+  --secondary-fixed-dim: 137 206 255;
+  --on-secondary-fixed: 0 30 47;
+  --on-secondary-fixed-variant: 0 76 110;
+  --tertiary: 255 183 131;
+  --on-tertiary: 79 37 0;
+  --tertiary-container: 217 119 33;
+  --on-tertiary-container: 69 32 0;
+  --tertiary-fixed: 255 220 197;
+  --tertiary-fixed-dim: 255 183 131;
+  --on-tertiary-fixed: 48 20 0;
+  --on-tertiary-fixed-variant: 112 55 0;
+  --error: 255 180 171;
+  --on-error: 105 0 5;
+  --error-container: 147 0 10;
+  --on-error-container: 255 218 214;
+  --inverse-surface: 228 225 237;
+  --inverse-on-surface: 48 48 56;
+}
+
+/* ── Light theme — applies when html[data-theme="light"] ── */
+[data-theme="light"] {
+  color-scheme: light;
+  --background: 249 248 255;
+  --on-background: 25 27 34;
+  --surface: 249 248 255;
+  --on-surface: 25 27 34;
+  --surface-dim: 220 217 227;
+  --surface-bright: 249 248 255;
+  --surface-container-lowest: 255 255 255;
+  --surface-container-low: 243 242 250;
+  --surface-container: 238 235 245;
+  --surface-container-high: 232 229 239;
+  --surface-container-highest: 228 225 235;
+  --surface-variant: 228 225 236;
+  --on-surface-variant: 70 70 79;
+  --outline: 86 86 95;
+  --outline-variant: 202 196 208;
+  --primary: 90 91 214;
+  --on-primary: 255 255 255;
+  --primary-container: 223 224 255;
+  --on-primary-container: 10 10 110;
+  --primary-fixed: 223 224 255;
+  --primary-fixed-dim: 191 192 255;
+  --on-primary-fixed: 10 10 110;
+  --on-primary-fixed-variant: 47 46 190;
+  --inverse-primary: 191 192 255;
+  --surface-tint: 90 91 214;
+  --secondary: 0 85 113;
+  --on-secondary: 255 255 255;
+  --secondary-container: 162 230 255;
+  --on-secondary-container: 0 52 78;
+  --secondary-fixed: 162 230 255;
+  --secondary-fixed-dim: 137 206 255;
+  --on-secondary-fixed: 0 52 78;
+  --on-secondary-fixed-variant: 0 76 110;
+  --tertiary: 127 91 23;
+  --on-tertiary: 255 255 255;
+  --tertiary-container: 255 222 177;
+  --on-tertiary-container: 69 32 0;
+  --tertiary-fixed: 255 222 177;
+  --tertiary-fixed-dim: 255 183 131;
+  --on-tertiary-fixed: 69 32 0;
+  --on-tertiary-fixed-variant: 112 55 0;
+  --error: 186 26 26;
+  --on-error: 255 255 255;
+  --error-container: 255 218 214;
+  --on-error-container: 65 0 2;
+  --inverse-surface: 52 53 61;
+  --inverse-on-surface: 236 235 243;
+}
+
+/* ── Accent colours — override the primary family at runtime ── */
+[data-accent="violet"] {
+  --primary: 146 118 250;
+  --on-primary: 255 255 255;
+  --primary-container: 221 214 255;
+  --on-primary-container: 46 30 122;
+  --primary-fixed: 221 214 255;
+  --primary-fixed-dim: 192 173 255;
+  --on-primary-fixed: 46 30 122;
+  --on-primary-fixed-variant: 78 52 180;
+  --inverse-primary: 192 173 255;
+  --surface-tint: 146 118 250;
+}
+
+[data-accent="cyan"] {
+  --primary: 0 145 190;
+  --on-primary: 255 255 255;
+  --primary-container: 179 231 255;
+  --on-primary-container: 0 45 67;
+  --primary-fixed: 179 231 255;
+  --primary-fixed-dim: 0 171 214;
+  --on-primary-fixed: 0 45 67;
+  --on-primary-fixed-variant: 0 110 148;
+  --inverse-primary: 99 210 255;
+  --surface-tint: 0 145 190;
+}
+
+[data-accent="emerald"] {
+  --primary: 0 153 106;
+  --on-primary: 255 255 255;
+  --primary-container: 176 246 217;
+  --on-primary-container: 0 61 39;
+  --primary-fixed: 176 246 217;
+  --primary-fixed-dim: 80 206 164;
+  --on-primary-fixed: 0 61 39;
+  --on-primary-fixed-variant: 0 116 79;
+  --inverse-primary: 80 216 174;
+  --surface-tint: 0 153 106;
+}
+
+[data-accent="rose"] {
+  --primary: 219 68 108;
+  --on-primary: 255 255 255;
+  --primary-container: 255 217 224;
+  --on-primary-container: 94 0 31;
+  --primary-fixed: 255 217 224;
+  --primary-fixed-dim: 255 176 190;
+  --on-primary-fixed: 94 0 31;
+  --on-primary-fixed-variant: 190 18 74;
+  --inverse-primary: 255 176 190;
+  --surface-tint: 219 68 108;
+}
+
+/* ── Font size scaling (Appearance → Font size) ──
+   CSS zoom is supported by the WebView2 (Chromium) engine and scales
+   the whole UI, giving a real, immediate size change. */
+html[data-font-size="small"] { zoom: 0.9; }
+html[data-font-size="large"] { zoom: 1.1; }
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: rgb(var(--background));
+    color: rgb(var(--on-surface));
+  }
+
+  /* Disable default Tauri drag region on the whole window */
+  body {
+    user-select: none;
+  }
+
+  /* Re-enable text selection for readable content */
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  input,
+  textarea {
+    user-select: text;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgb(var(--surface-container) / 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgb(var(--outline-variant) / 0.3);
+  }
+
+  /* Material Symbols default variant */
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .active-fill {
+    font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+}
+
+@layer utilities {
+  /* Scrollbar styling for desktop */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgb(var(--outline-variant) / 0.5);
+    border-radius: 9999px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(var(--outline-variant) / 0.8);
+  }
+}
